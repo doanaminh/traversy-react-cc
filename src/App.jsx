@@ -5,8 +5,10 @@ import Header from './components/Header';
 import Button from './components/Button';
 import Tasks from './components/Tasks';
 import Task from './components/Task';
+import AddTask from './components/AddTask';
+
 const  App = () => {
-  const [count, setCount] = useState(0)
+  const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -28,6 +30,13 @@ const  App = () => {
   },
   ])
 
+  // Add Task
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = {id, ...task};
+    setTasks([...tasks, newTask]);
+  }
+
   // Delete Task
   const deleteTask = id => {
     setTasks(tasks.filter(el => el.id !== id));
@@ -46,7 +55,8 @@ const  App = () => {
   return (
     <div className="container">
       <Header />
-      <Button text='Add'/>
+      <Button text={showAddTask ? 'Close' : 'Add'} color={showAddTask ? 'red' : 'green'} onAdd={() => setShowAddTask(!showAddTask)} />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : <p>No Tasks</p>}
     </div>
   )

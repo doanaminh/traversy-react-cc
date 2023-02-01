@@ -1,3 +1,4 @@
+import Button from './Button';
 const Header = ({ title }) => {
     return (
         <header>
