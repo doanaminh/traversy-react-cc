@@ -55,7 +55,8 @@ body {
 }
 
 .task {
-  background: #f86464;
+  color: black;
+  background: gainsboro;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
