@@ -1,17 +1,13 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import Header from './components/Header';
 import Button from './components/Button';
 import Tasks from './components/Tasks';
-import Task from './components/Task';
 import AddTask from './components/AddTask';
 
 const  App = () => {
   const [showAddTask, setShowAddTask] = useState(false);
-  const [tasks, setTasks] = useState([
-
-  ])
+  const [tasks, setTasks] = useState([]);
 
   // Add Task
   const addTask = (task) => {
